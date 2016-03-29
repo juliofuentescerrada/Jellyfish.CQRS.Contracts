@@ -1,7 +1,9 @@
 ﻿namespace Jellyfish.CQRS.Contracts.QueryStack
 {
-    public interface IQueryHandler<in TQuery, out TResult> where TQuery : IQuery where TResult : IQueryResult
+    using System.Threading.Tasks;
+
+    public interface IQueryHandler<in TQuery, TResult> where TQuery : IQuery where TResult : IQueryResult
     {
-        TResult Handler(TQuery query);
+        Task<TResult> Handler(TQuery query);
     }
 }

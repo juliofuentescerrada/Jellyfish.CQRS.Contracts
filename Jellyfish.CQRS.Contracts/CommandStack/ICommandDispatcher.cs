@@ -1,7 +1,9 @@
 ﻿namespace Jellyfish.CQRS.Contracts.CommandStack
 {
+    using System.Threading.Tasks;
+
     public interface ICommandDispatcher
     {
-        void Dispatch<TCommand>(TCommand command) where TCommand : ICommand;
+        Task Dispatch<TCommand>(TCommand command) where TCommand : ICommand;
     }
 }
